@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: ['./src/index.tsx'],
   output: { filename: 'bundle.js', path: __dirname + '/dist' },
@@ -11,4 +13,10 @@ module.exports = {
     ],
   },
   resolve: { extensions: ['*', '.js', '.jsx', '.ts', '.tsx'] },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/public/index.html',
+      favicon: 'src/public/favicon.ico',
+    }),
+  ],
 };
